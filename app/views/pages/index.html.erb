@@ -1,0 +1,26 @@
+<h1>Home Page</h1>
+
+<% if @pages.empty? %>
+	<b>No pages in store</b>
+<% else %>
+
+<table>
+	<tr>
+		<th>ID<th/>
+		<th>NAME<th/>
+		<th>DESCRIPTION<th/>
+		<th>RATING</th>
+	</tr>
+
+	<% @pages.each do |p| %>
+		<tr>
+			<td><%= p.id %></td>
+			<td><%= link_to p.name, page_path(p) %><td/>
+			<td><%= p.description %></td>
+			<td><%= link_to "Delete", p, method: :delete, data: { confirm: "Are you shure?" } %></td>
+			<td><%= p.votes_count%>, <%= link_to "+", upvote_page_path(p) %></td>
+		</tr>
+	<% end %>
+</table>	
+
+<% end %>

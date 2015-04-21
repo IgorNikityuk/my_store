@@ -1,0 +1,13 @@
+<h1>Show page</h1>
+<h1><%= @page.name %></h1>
+
+<ul>
+	<li>URL: <%= @page.url %></li>
+	<li>Webelement_count: <%= @page.webelement_count %></li>
+	<li>Description: <%= @page.description %></li>
+</ul>>
+
+<form action="/pages" method="POST"> 
+	<input type="text" name="title"/>
+	<input type="submit"/>
+</form>
