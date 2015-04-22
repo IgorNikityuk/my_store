@@ -1,12 +1,14 @@
 source 'https://rubygems.org'
 
-group :development do
+group :development, :test do
 	# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 	gem 'rails', '4.2.0'
 	# Use sqlite3 as the database for Active Record
 	gem 'sqlite3'
 	# Use SCSS for stylesheets
 	gem 'sass-rails', '~> 5.0'
+	gem 'bootstrap-sass'
+	gem 'simple_form'
 	# Use Uglifier as compressor for JavaScript assets
 	gem 'uglifier', '>= 1.3.0'
 	# Use CoffeeScript for .coffee assets and views
@@ -40,10 +42,12 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
 end
 
 group :test do
 	gem 'rspec'
+	gem 'rspec-rails'
 	gem 'rspec-expectations'
 	gem 'cucumber'
 	gem 'selenium-webdriver'
@@ -51,4 +55,9 @@ group :test do
 	gem 'capybara'
 	gem 'pry'
 	gem 'pry-nav'
+	gem 'database_cleaner'
+	gem 'parallel_tests'
+	gem 'factory_girl'
+	gem 'faker'
+	gem 'nokogiri'
 end

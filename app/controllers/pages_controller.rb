@@ -1,11 +1,14 @@
 class PagesController < ApplicationController
 
 	before_filter :find_page,				only: [:show, :edit, :update, :destroy, :upvote]
-	before_filter :check_if_admin,	only: [:edit, :update, :destroy]
+	#before_filter :check_if_admin,	only: [:edit, :update, :destroy]
 
 	#/pages
   def index
     @pages = Page.all
+    #@pages = @pages.where("webelement_count >= ?", params[:webelement_count]) if params[:webelement_count]
+    #@pages = @pages.where("created_at >= ?", 1.day.ago) if params[:today]
+    #@pages = @pages.order("name ASC")
   end
 
   def expensive
@@ -33,7 +36,7 @@ class PagesController < ApplicationController
   def create
     @page = Page.create(page_params)
     if @page.errors.empty?
-    	redirect_to action: "index"#page_path(@page)
+    	redirect_to action: "index"
     else 
     	render "new"
     end
@@ -43,8 +46,10 @@ class PagesController < ApplicationController
   def update
   	@page.update_attributes(page_params)
     if @page.errors.empty?
+      flash[:success] = "Item successfully updated"
     	redirect_to page_path(@page)
     else 
+      flash.now[:error] = "You made mistakes in your form. please correct them"
     	render "edit"
     end
   end

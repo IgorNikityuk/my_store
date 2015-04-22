@@ -1,12 +1,10 @@
 <h1>Edit page</h1>
 
-<%= form_for @page do |f| %>
+<%= simple_form_for @page do |f| %>
 
-	<p><strong>Name: </strong><br/><%= f.text_field :name %></p>
-	<p>URL: <br/><%= f.text_field :url %></p>
-	<p>Description: <br/><%= f.text_field :description %></p>
-	<p>Webelement_count: <br/><%= f.text_field :webelement_count %></p>
-
-	<p><%= f.submit "Save changes" %></p>
+	<%= render partial: "form", locals: { f: f } %>
+	
+	
+	<button type="button" class="btn btn-error"><%= f.submit "Save Changes" %></button>
 
 <% end %>

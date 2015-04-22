@@ -2,11 +2,8 @@
 
 <%= form_for @page do |f| %>
 
-	<p><strong>Name: </strong><br/><%= f.text_field :name %></p>
-	<p>URL: <br/><%= f.text_field :url %></p>
-	<p>Description: <br/><%= f.text_field :description %></p>
-	<p>Webelement_count: <br/><%= f.text_field :webelement_count %></p>
-
+	<%= render partial: "form", locals: { f: f } %>
+	
 	<p><%= f.submit "Create page" %></p>
 
 <% end %>
