@@ -58,4 +58,5 @@ group :development, :test do
   gem 'factory_girl_rails'
 	gem 'faker'
 	gem 'nokogiri'
+	gem 'rest-client'
 end

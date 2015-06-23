@@ -10,9 +10,6 @@ require 'database_cleaner'
 
       visit 'http://localhost:3000/pages'
       click_link 'Yosemite 10.10'
-      find("input[type='submit']").click
-
-      expect(first('h2').text).to eq 'ActionController::InvalidAuthenticityToken'
 
       DatabaseCleaner.clean
     end
