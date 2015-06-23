@@ -18,9 +18,13 @@
 			<td><%= link_to p.name, page_path(p) %><td/>
 			<td><%= p.description %></td>
 			<td><%= link_to "Delete", p, method: :delete, data: { confirm: "Are you shure?" } %></td>
+			<td><%= link_to "Edit", edit_page_path(p) %></td>
 			<td><%= p.votes_count%>, <%= link_to "+", upvote_page_path(p) %></td>
 		</tr>
+
+
 	<% end %>
 </table>	
+<button>Create <%=  %> </button>>
 
 <% end %>

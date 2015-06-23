@@ -2,6 +2,7 @@ require 'pry'
 require 'active_record'
 require 'factory_girl'
 require 'rest-client'
+require 'httparty'
 
 #ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
@@ -26,6 +27,8 @@ end
 #Capybara.default_host = ENV['server'] || "http://staging.limos.com"
 Capybara.default_driver = :selenium
 Capybara.default_wait_time = 5
+
+DatabaseCleaner.strategy = :truncation
 
 RSpec.configure do |config|
   # ## Mock Framework
@@ -62,4 +65,10 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
   config.include FactoryGirl::Syntax::Methods
+  config.before(:all) do
+    DatabaseCleaner.clean
+  end
+
 end
+
+

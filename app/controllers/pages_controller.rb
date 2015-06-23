@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
 
+  skip_before_filter :verify_authenticity_token
 	before_filter :find_page,				only: [:show, :edit, :update, :destroy, :upvote]
 	#before_filter :check_if_admin,	only: [:edit, :update, :destroy]
 

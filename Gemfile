@@ -59,4 +59,5 @@ group :development, :test do
 	gem 'faker'
 	gem 'nokogiri'
 	gem 'rest-client'
+	gem 'httparty'
 end
