@@ -47,6 +47,7 @@ group :development, :test do
 	gem 'rspec-rails'
 	gem 'rspec-expectations'
 	gem 'cucumber'
+	gem 'cucumber-rails', :require => false
 	gem 'selenium-webdriver'
 	gem 'chromedriver-helper'
 	gem 'capybara'
