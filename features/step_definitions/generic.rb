@@ -4,13 +4,12 @@ Given(/^I open home page$/) do
 end
 
 When(/^I open page with name (.*)$/) do |name|
-  click_link name
+  @current_page.open_page_with_name name
 end
 
 When(/^I create page with name (.*)$/) do |name|
   page = FactoryGirl.create :page, name: name
 end
-
 
 
 # Then(/^I should be on Sign in page$/) do

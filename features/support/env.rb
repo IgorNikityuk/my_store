@@ -5,11 +5,12 @@
 # files.
 
 require 'cucumber/rails'
+require 'cucumber'
 require 'capybara'
 require 'capybara/dsl'
 require 'capybara/cucumber'
-require 'capybara/rspec'
-require 'rspec/autorun'
+#require 'capybara/rspec'
+#require 'rspec/autorun'
 require 'selenium-webdriver'
 require 'pry'
 require 'active_record'
@@ -23,13 +24,18 @@ Capybara.register_driver :selenium_firefox do |app|
   Capybara::Selenium::Driver.new(app, :browser => :firefox)
 end
 
+Capybara.default_driver = :selenium_firefox
+
 Capybara.configure do |config|
-  config.default_driver = :selenium_firefox
-  config.javascript_driver = :poltergeist
+  #config.default_driver = :selenium_firefox
+  #config.javascript_driver = :poltergeist
   config.run_server = false
   config.default_selector = :css
   config.app_host = 'http://localhost:3000'
 end
+
+Capybara.ignore_hidden_elements = nil
+Capybara.default_wait_time = 5
 
 #settings for chrome
 # Capybara.register_driver :selenium_chrome do |app|  
@@ -43,9 +49,6 @@ end
 #   config.app_host = "http://www.vk.com"
 #   config.default_selector = :css
 # end
-
-Capybara.default_wait_time = 5
-
 
 # Capybara defaults to CSS3 selectors rather than XPath.
 # If you'd prefer to use XPath, just uncomment this line and adjust any

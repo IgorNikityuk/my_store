@@ -50,7 +50,8 @@ group :development, :test do
 	gem 'cucumber-rails', :require => false
 	gem 'selenium-webdriver'
 	gem 'chromedriver-helper'
-	gem 'capybara'
+	gem 'capybara', '2.1.0'
+	gem 'capybara-rails'
 	gem 'pry'
 	gem 'pry-nav'
 	gem 'database_cleaner'
